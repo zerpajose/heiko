@@ -2,7 +2,7 @@ import { createClient } from '@urql/svelte';
 import { cacheExchange, fetchExchange } from '@urql/core';
 
 export const client = createClient({
-    url: 'https://api.alcambio.app/graphql',
+    url: import.meta.env.VITE_API_URL,
     exchanges: [cacheExchange, fetchExchange],
 });
 
