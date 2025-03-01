@@ -1,9 +1,14 @@
 import { createClient } from '@urql/svelte';
-import { cacheExchange, fetchExchange } from '@urql/core';
 
 export const client = createClient({
-    url: '/graphql',
-    exchanges: [cacheExchange, fetchExchange],
+  url: 'https://api.alcambio.app/graphql',
+  fetchOptions: {
+    credentials: 'omit',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  },
+  exchanges: []
 });
 
 export const RATES_QUERY = `
